@@ -8,5 +8,5 @@ RUN npm install
 
 RUN npm test
 
-# Utworzenie artefaktu
-RUN npm pack
+# Utworzenie artefaktu i czyszczenie środowiska
+RUN rm -f *.tgz && npm pack
