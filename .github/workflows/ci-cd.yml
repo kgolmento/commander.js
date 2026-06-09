@@ -6,6 +6,10 @@ on:
     branches: [ "ino_dev" ]
   pull_request:
     branches: [ "ino_dev" ]
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Test tags'
 
 # Odtworzenie pipeline'a
 jobs:
@@ -41,4 +45,4 @@ jobs:
       with:
         name: commander-package
         path: "*.tgz"
-        retention-days: 5
+        retention-days: 1
