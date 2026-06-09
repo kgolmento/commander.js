@@ -44,10 +44,10 @@ pipeline {
 
         stage('Publish') {
             steps {
-                // Odkładanie artefaktu (paczka) do historii builda
+                // Archiwizacja paczki
                 archiveArtifacts artifacts: "${ARTIFACT_NAME}, test-logs.txt", followSymlinks: false
                 
-                // Wysłanie obrazu/artefaktu dalej (tu symulacja NPM Publish)
+                // Symulacja NPM Publish
                 sh "docker run --rm -v ${WORKSPACE}:/workspace -w /workspace node:20.12.0-slim npm publish ${ARTIFACT_NAME} --dry-run"
             }
         }
